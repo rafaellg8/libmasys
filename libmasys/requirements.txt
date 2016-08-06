@@ -16,3 +16,4 @@ bcrypt
 Fabric
 unidecode
 datetime
+django-datatables-view

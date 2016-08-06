@@ -18,16 +18,16 @@ class Genero(models.Model):
 class Usuario(models.Model):
     nombre = models.CharField(blank=False, max_length=15)
     apellidos = models.CharField(blank=False, max_length=30)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_regex = RegexValidator(regex=r'^\d{9,15}$', message="Telefono debe ser: 123456789.")
     telefono = models.CharField(validators=[phone_regex], blank=True,max_length=15) # validators should be a list
     direccion = models.CharField(blank=True,max_length=100)
 
     def __unicode__(self):
-        return self.id_usuario
+            return self.nombre+" "+self.apellidos
 
-class Libros(models.Model):
+class Libro(models.Model):
     titulo = models.CharField(blank=False, max_length=100)
-    autor = models.CharField(blank=False, max_length=15)
+    autor = models.CharField(blank=True, max_length=15)
     descripcion = models.CharField(blank=True, max_length=100)
     orden = models.CharField(blank=True, max_length=10)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
@@ -41,8 +41,8 @@ class Prestamo(models.Model):
 
     fechaInicio = models.DateField(default=datetime.datetime.today)
     fechaFin = models.DateField(default=datetime.datetime.today()+datetime.timedelta(days=7)) #por defecto 7 dias despues de la creacion
-    libro = models.ForeignKey(Libros)
-    usuarioPrestamo = models.ForeignKey(Usuario)
+    libro = models.OneToOneField(Libro,unique=True)
+    usuarioPrestamo = models.OneToOneField(Usuario,unique=True)
 
     def __unicode__(self):
-        return self.id_prestamo
+        return self.fechaFin.strftime("%Y-%m-%d")+" "+self.libro.__unicode__()+" "+self.usuarioPrestamo.__unicode__()
