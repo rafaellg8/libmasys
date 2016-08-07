@@ -3,7 +3,7 @@ django-registration
 django-toolbelt==0.0.1
 django-postgrespool==0.3.0
 gunicorn==19.3.0
-whitenoise==1.0.6
+whitenoise
 macros
 pymongo
 django-bootstrap-toolkit
