@@ -21,8 +21,8 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='prestamo',
-            name='libro',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='bookstore.Libro'),
+            name='Recurso',
+            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='bookstore.Recurso'),
         ),
         migrations.AlterField(
             model_name='prestamo',

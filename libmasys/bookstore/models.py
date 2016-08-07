@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
@@ -7,7 +9,7 @@ from django.core.validators import RegexValidator
 
 
 class Genero(models.Model):
-    nombre = models.CharField(blank=False, max_length=10)
+    nombre = models.CharField(blank=False, max_length=15,primary_key=True,unique=True)
 
     def get(self):
         return nombre
@@ -25,24 +27,24 @@ class Usuario(models.Model):
     def __unicode__(self):
             return self.nombre+" "+self.apellidos
 
-class Libro(models.Model):
+class Recurso(models.Model):
     titulo = models.CharField(blank=False, max_length=100)
-    autor = models.CharField(blank=True, max_length=15)
-    descripcion = models.CharField(blank=True, max_length=100)
+    autor = models.CharField(blank=True, max_length=100)
+    descripcion = models.CharField(blank=True, max_length=250)
     orden = models.CharField(blank=True, max_length=10)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     edicion = models.IntegerField(blank=True, null=True)
-
+    dvd = models.BooleanField(default=False)
     def __unicode__(self):
             return self.titulo
 
 class Prestamo(models.Model):
-    """( Prestamo libros)"""
+    """( Prestamo Recursos)"""
 
     fechaInicio = models.DateField(default=datetime.datetime.today)
     fechaFin = models.DateField(default=datetime.datetime.today()+datetime.timedelta(days=7)) #por defecto 7 dias despues de la creacion
-    libro = models.OneToOneField(Libro,unique=True)
+    Recurso = models.OneToOneField(Recurso,unique=True)
     usuarioPrestamo = models.OneToOneField(Usuario,unique=True)
 
     def __unicode__(self):
-        return self.fechaFin.strftime("%Y-%m-%d")+" "+self.libro.__unicode__()+" "+self.usuarioPrestamo.__unicode__()
+        return self.fechaFin.strftime("%Y-%m-%d")+" "+self.Recurso.__unicode__()+" "+self.usuarioPrestamo.__unicode__()

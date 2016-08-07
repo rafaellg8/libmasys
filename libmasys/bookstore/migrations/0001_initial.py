@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Libros',
+            name='Recursos',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('titulo', models.CharField(max_length=100)),
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('fechaInicio', models.DateField(default=datetime.datetime.today)),
                 ('fechaFin', models.DateField(default=datetime.datetime(2016, 8, 13, 16, 42, 44, 227629))),
-                ('libro', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bookstore.Libros')),
+                ('Recurso', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bookstore.Recursos')),
             ],
         ),
         migrations.CreateModel(

@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='libro',
+            model_name='Recurso',
             name='autor',
             field=models.CharField(blank=True, max_length=15),
         ),

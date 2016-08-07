@@ -47,14 +47,14 @@
                   {{q.autor}}
                 </td>
                 <td>
-                  {{q.genero__nombre}}
+                  {{q.genero}}
                 </td>
                 <td>
                   {{q.descripcion}}
                 </td>
                 <td>
                   {% if q.prestamo %}
-                    {{q.prestamo__fechaFin}}
+                    {{q.prestamo}}
                   {% else %}
                      Disponible
                      {% endif %}

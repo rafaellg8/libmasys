@@ -5,5 +5,5 @@ class SimpleSearch(forms.Form):
 
 
 class Search(forms.Form):
-    title = forms.CharField(label='Titulo libro', max_length=100)
+    title = forms.CharField(label='Titulo Recurso', max_length=100)
     author = forms.CharField(label='Autor', max_length=100)

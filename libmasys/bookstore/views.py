@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import SimpleSearch,Search
 import queries
-
+from bookstore.models import Recurso
 
 def index(request):
     if (request.method == 'POST'):
@@ -12,7 +12,7 @@ def index(request):
         return render(request,'hijo.html')
 
 def addBook(request):
-    return redirect('/admin/bookstore/libro/add/')
+    return redirect('/admin/bookstore/Recurso/add/')
 
 def search(request):
     if (request.method == 'POST'):
@@ -39,3 +39,8 @@ def Search(request):
         form = NameForm()
 
     return render(request, 'name.html', {'form': form})
+
+def catalogo(request):
+        resultBooks = Recurso.objects.filter(dvd=False)
+        resultDVD = (Recurso.objects.filter(dvd=True))
+        return render(request,'catalogo.html', {'resultBooks': resultBooks, 'resultDVD': resultDVD})

@@ -38,7 +38,7 @@
   </object>
   <object model="contenttypes.contenttype" pk="11">
     <field name="app_label" type="CharField">bookstore</field>
-    <field name="model" type="CharField">libro</field>
+    <field name="model" type="CharField">Recurso</field>
   </object>
   <object model="sessions.session" pk="bjfmmh1knwhyijlx1k02fixfoxv7bmqf">
     <field name="session_data" type="TextField">NmI2NzU3MjcyMTZlN2JjNTc0YmQyMDZlZmQwOWQyNjU2YjY2Mjg4NTp7Il9hdXRoX3VzZXJfaGFzaCI6IjBiNjU2M2JiNzY3MTQ1NGY2YjlhMTEyMjdmYzgyNDFlODUyMDA4NGMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=</field>
@@ -74,7 +74,7 @@
     <field name="telefono" type="CharField">958485737</field>
     <field name="direccion" type="CharField">Hola Mundo</field>
   </object>
-  <object model="bookstore.libro" pk="1">
+  <object model="bookstore.Recurso" pk="1">
     <field name="titulo" type="CharField">La Biblia</field>
     <field name="autor" type="CharField">Anonimo</field>
     <field name="descripcion" type="CharField"></field>
@@ -82,7 +82,7 @@
     <field name="genero" rel="ManyToOneRel" to="bookstore.genero">5</field>
     <field name="edicion" type="IntegerField"><None></None></field>
   </object>
-  <object model="bookstore.libro" pk="2">
+  <object model="bookstore.Recurso" pk="2">
     <field name="titulo" type="CharField">Heidi</field>
     <field name="autor" type="CharField"></field>
     <field name="descripcion" type="CharField"></field>
@@ -226,19 +226,19 @@
     <field name="codename" type="CharField">delete_prestamo</field>
   </object>
   <object model="auth.permission" pk="31">
-    <field name="name" type="CharField">Can add libro</field>
+    <field name="name" type="CharField">Can add Recurso</field>
     <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">11</field>
-    <field name="codename" type="CharField">add_libro</field>
+    <field name="codename" type="CharField">add_Recurso</field>
   </object>
   <object model="auth.permission" pk="32">
-    <field name="name" type="CharField">Can change libro</field>
+    <field name="name" type="CharField">Can change Recurso</field>
     <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">11</field>
-    <field name="codename" type="CharField">change_libro</field>
+    <field name="codename" type="CharField">change_Recurso</field>
   </object>
   <object model="auth.permission" pk="33">
-    <field name="name" type="CharField">Can delete libro</field>
+    <field name="name" type="CharField">Can delete Recurso</field>
     <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">11</field>
-    <field name="codename" type="CharField">delete_libro</field>
+    <field name="codename" type="CharField">delete_Recurso</field>
   </object>
   <object model="auth.user" pk="1">
     <field name="password" type="CharField">pbkdf2_sha256$30000$NKefoddd40GU$+y+AaLxVSFxgede9Gyvg5QffbGQ8q1+uZ39Nr8GwZSI=</field>
