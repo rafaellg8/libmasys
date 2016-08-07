@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 
 from django.http import HttpResponse
 from .forms import SimpleSearch,Search
+import queries
 
 
 def index(request):
@@ -15,7 +16,10 @@ def addBook(request):
 
 def search(request):
     if (request.method == 'POST'):
-        return render(request,'result.html',{'searchString': request.POST['searchParam']})
+        searchString = request.POST['searchParam']
+        result = queries.search(searchString)
+        print result.count()
+        return render(request,'result.html',{'result': result})
     else:
         return redirect('/')
 
