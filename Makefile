@@ -22,8 +22,8 @@ heroku:
 	sudo heroku login
 	sudo heroku create bibliodudar
 	heroku buildpacks:set heroku/python
-	deploy
-	
+	$(MAKE) deploy
+
 deploy:
 	sudo git add .
 	sudo git commit -m "heroku despliegue remoto"
