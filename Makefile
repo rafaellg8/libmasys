@@ -20,7 +20,11 @@ heroku:
 	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 	cd ..
 	sudo heroku login
-	sudo heroku create
+	sudo heroku create bibliodudar
+	heroku buildpacks:set heroku/python
+	deploy
+	
+deploy:
 	sudo git add .
 	sudo git commit -m "heroku despliegue remoto"
 	sudo git push heroku master
