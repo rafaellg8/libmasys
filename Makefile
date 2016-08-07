@@ -28,5 +28,5 @@ deploy:
 	sudo git add .
 	sudo git commit -m "heroku despliegue remoto"
 	sudo git push heroku master
-	sudo heroku run python manage.py syncdb --noinput
+	sudo heroku run python libmasys/manage.py syncdb --noinput
 	sudo heroku ps:scale web=1
