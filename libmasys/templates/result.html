@@ -23,23 +23,50 @@
         </table>
     </div>
 
-    <div class="container">
-      <table id="tableResult">
+<div class="container">
+    <table id="tableResult">
         <tbody>
-          {% for q in result  %}
+          <tr>
+            <th>Orden bibliográfico</th>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Genero</th>
+            <th>Descripción</th>
+            <th>Préstamo</th>
+          </tr>
+            {% for q in result %}
             <tr>
-              <td>
-                {{q}}
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+                <td>
+                    {{q.orden}}
+                </td>
+                <td>
+                    {{q.titulo}}
+                </td>
 
-    </div>
-    <br>
-    {% block search %}
-    <!-- <div class="container">
+                <td>
+                  {{q.autor}}
+                </td>
+                <td>
+                  {{q.genero__nombre}}
+                </td>
+                <td>
+                  {{q.descripcion}}
+                </td>
+                <td>
+                  {% if q.prestamo %}
+                    {{q.prestamo__fechaFin}}
+                  {% else %}
+                     Disponible
+                     {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<br> {% block search %}
+<!-- <div class="container">
         <div id="custom-search-input">
             <div class="input-group">
                 <input type="text" class="  search-query form-control" placeholder="Búsqueda" />
