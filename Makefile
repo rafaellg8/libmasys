@@ -25,8 +25,9 @@ heroku:
 	$(MAKE) deploy
 
 deploy:
-	sudo git add .
-	sudo git commit -m "heroku despliegue remoto"
-	sudo git push heroku master
-	sudo heroku run python libmasys/manage.py syncdb --noinput
-	sudo heroku ps:scale web=1
+	git add .
+	git commit -m "heroku despliegue remoto"
+	git push heroku master
+	heroku run python libmasys/manage.py makemigrations
+	heroku run python libmasys/manage.py migrate
+	heroku ps:scale web=1
