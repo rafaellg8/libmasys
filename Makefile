@@ -13,3 +13,16 @@ migrate:
 
 start:
 	python libmasys/manage.py runserver
+
+
+heroku:
+	sudo apt-get install wget
+	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+	cd ..
+	sudo heroku login
+	sudo heroku create
+	sudo git add .
+	sudo git commit -m "heroku despliegue remoto"
+	sudo git push heroku master
+	sudo heroku run python manage.py syncdb --noinput
+	sudo heroku ps:scale web=1
