@@ -15,6 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+#Configuramos la direccion de los directorios
+
+BASE_DIR_FILES = BASE_DIR+'/pluco/'
+
+TEMPLATE_PATH = BASE_DIR+'templates/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -25,7 +30,7 @@ SECRET_KEY = '+63o6@l7x1mot!)=+$956hn6y6*3&p!-d55(gab@p(@b+phha8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,8 +56,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'libmasys.urls'
-
-TEMPLATE_PATH = BASE_DIR+'templates/'
 
 TEMPLATES = [
     {
@@ -117,16 +120,25 @@ USE_L10N = True
 USE_TZ = True
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
+STATIC_ROOT = 'staticfiles'
+
 STATIC_URL = '/static/'
 
-# Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(BASE_DIR, 'static/'),
 )
 #Media_ROOT
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# Registration configuration
+
+REGISTRATION_OPEN = True                # If True, users can register
+ACCOUNT_ACTIVATION_DAYS = 7     # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
+
+# Login users
+AUTH_PROFILE_MODULE = "account.UserProfile"
+
+LOGIN_REDIRECT_URL = '/'  # The page you want users to arrive at after they successful log in
+LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not logged in,
