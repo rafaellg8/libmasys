@@ -43,3 +43,4 @@ class Prestamo(models.Model):
 
     def __unicode__(self):
         return self.fechaFin.strftime("%Y-%m-%d")+" "+self.Recurso.__unicode__()+" "+self.usuarioPrestamo.__unicode__()
+"""
