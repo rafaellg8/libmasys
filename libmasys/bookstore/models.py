@@ -35,7 +35,10 @@ class Recurso(models.Model):
     estanteria = models.CharField(blank=True, max_length=100)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     edicion = models.IntegerField(blank=True, null=True)
+    editorial = models.CharField(blank=True, max_length=250)
     dvd = models.BooleanField(default=False)
+    fecha = models.DateField(blank=True) #por defecto 7 dias despues de la creacion
+
     def __unicode__(self):
             return self.titulo
 
