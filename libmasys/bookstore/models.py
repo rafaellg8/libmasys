@@ -37,7 +37,7 @@ class Recurso(models.Model):
     edicion = models.IntegerField(blank=True, null=True)
     editorial = models.CharField(blank=True, max_length=250)
     dvd = models.BooleanField(default=False)
-    fecha = models.DateField(blank=True) #por defecto 7 dias despues de la creacion
+    fecha = models.IntegerField(blank=True,null=True) #por defecto 7 dias despues de la creacion
 
     def __unicode__(self):
             return self.titulo
