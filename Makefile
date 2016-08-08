@@ -8,8 +8,8 @@ export:
 	python libmasys/manage.py dumpdata --indent 2 --format xml > libmasys/data/database.xml
 
 migrate:
-	python libmasys/manage.py makemigrations -y
-	python libmasys/manage.py migrato --run-syncdb -y
+	python libmasys/manage.py makemigrations
+	python libmasys/manage.py migrate --run-syncdb
 
 start:
 	python libmasys/manage.py runserver

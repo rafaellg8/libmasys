@@ -9,7 +9,7 @@ from django.core.validators import RegexValidator
 
 
 class Genero(models.Model):
-    nombre = models.CharField(blank=False, max_length=15,primary_key=True,unique=True)
+    nombre = models.CharField(blank=False, max_length=100,primary_key=True,unique=True)
 
     def get(self):
         return nombre
@@ -29,9 +29,10 @@ class Usuario(models.Model):
 
 class Recurso(models.Model):
     titulo = models.CharField(blank=False, max_length=100)
-    autor = models.CharField(blank=True, max_length=100)
+    autor = models.CharField(blank=False, max_length=100)
     descripcion = models.CharField(blank=True, max_length=250)
-    orden = models.CharField(blank=True, max_length=10)
+    orden = models.CharField(blank=True, max_length=100)
+    estanteria = models.CharField(blank=True, max_length=100)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     edicion = models.IntegerField(blank=True, null=True)
     dvd = models.BooleanField(default=False)
