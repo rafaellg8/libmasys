@@ -31,3 +31,11 @@ deploy:
 	heroku run python libmasys/manage.py makemigrations
 	heroku run python libmasys/manage.py migrate
 	heroku ps:scale web=1
+
+backupSchedule:
+	heroku pg:backups schedule DATABASE_URL --at '19:30 Spain/Madrid'  --app bibliodudar
+
+backup:
+	heroku pg:backups capture
+	curl -o latest.dump `heroku pg:backups public-url`
+	$(MAKE) export
