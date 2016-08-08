@@ -41,6 +41,6 @@ def Search(request):
     return render(request, 'name.html', {'form': form})
 
 def catalogo(request):
-        resultBooks = Recurso.objects.filter(dvd=False)
-        resultDVD = (Recurso.objects.filter(dvd=True))
+        resultBooks = Recurso.objects.filter(dvd=False).order_by('titulo')
+        resultDVD = Recurso.objects.filter(dvd=True).order_by('titulo')
         return render(request,'catalogo.html', {'resultBooks': resultBooks, 'resultDVD': resultDVD})
