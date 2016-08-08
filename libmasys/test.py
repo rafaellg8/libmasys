@@ -35,7 +35,6 @@ class Recurso(models.Model):
             return self.titulo
 
 class Prestamo(models.Model):
-    """( Prestamo Recursos)"""
 
     fechaInicio = models.DateField(default=datetime.datetime.today)
     fechaFin = models.DateField(default=datetime.datetime.today()+datetime.timedelta(days=7)) #por defecto 7 dias despues de la creacion
