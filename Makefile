@@ -38,4 +38,8 @@ backupSchedule:
 backup:
 	heroku pg:backups capture
 	curl -o latest.dump `heroku pg:backups public-url`
-	$(MAKE) export
+
+getXMLDB:
+	heroku run bash
+	#python libmasys/manage.py dumpdata --indent 2 --format xml > libmasys/data/database.xml
+	#scp libmasys/data/database.xml .
