@@ -47,6 +47,11 @@ def catalogo(request):
         resultDVD =  Recurso.objects.filter(dvd=True).order_by('titulo')
         return render(request,'catalogo.html', {'resultBooks': resultBooks, 'resultDVD': resultDVD})
 
+def catalogoDVD(request):
+        resultDVD =  Recurso.objects.filter(dvd=True).order_by('titulo')
+        return render(request,'catalogoDVD.html', {'resultDVD': resultDVD})
+
+
 def getAllJSONLibros(request):
     objectQuerySet = Recurso.objects.all()
     data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','orden','estanteria','edicion','editorial','prestamo'))

@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^catalogo/',views.catalogo, name='catalogo'),
     url(r'^catalogojsonLibros/',views.getLibrosJSON, name='catalogoJSONLibros'),
     url(r'^catalogojsonDVDs/',views.getDVDsJSON, name='catalogoJSONDVDs'),
+    url(r'^dvd/',views.catalogoDVD, name='catalogoDVD'),
 ]

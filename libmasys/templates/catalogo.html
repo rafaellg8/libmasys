@@ -1,12 +1,7 @@
-{% extends "index.html" %}
-
-{% block title %}BiblioDudar{% endblock %}
-{% load static %}
+{% extends "index.html" %} {% block title %}BiblioDudar{% endblock %} {% load static %}
 
 
-<br>
-
-{% block jumbo %}
+<br> {% block jumbo %}
 <div class="jumbotron">
     <div class="container">
         <table class="col-md-12">
@@ -22,44 +17,45 @@
             </tbody>
         </table>
     </div>
-{% endblock %}
+    {% endblock %} {% block menu-foot %}
+    <div class="container">
+        <button id="showTableBooks" class="btn btn-default">
+            <h2>Mostrar Libros</h2></button>
+        <table id="tableResultLibros" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Orden bibliográfico</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Genero</th>
+                    <th>Descripción</th>
+                    <!-- <th>Préstamo</th> -->
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 
-{% block menu-foot %}
-<div class="container">
-  <button id="showTableBooks" class="btn btn-defaultname"><h2>Libros</h2></button>
-    <table id="tableResultLibros" class="display" cellspacing="0" width="100%">
-      <thead>
-        <tr>
-          <th>Orden bibliográfico</th>
-          <th>Titulo</th>
-          <th>Autor</th>
-          <th>Genero</th>
-          <th>Descripción</th>
-          <!-- <th>Préstamo</th> -->
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    </table>
-
-    <button id="showTableDVD" class="btn btn-defaultname"><h2>DVDs</h2></button>
-    <table id="tableResultDVDs" class="display" cellspacing="0" width="100%" style="display: none">
-      <thead>
-        <tr>
-          <th>Orden bibliográfico</th>
-          <th>Titulo</th>
-          <th>Autor</th>
-          <th>Genero</th>
-          <th>Descripción</th>
-          <!-- <th>Préstamo</th> -->
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    </table>
-</div>
-<br> {% block search %}
-<!-- <div class="container">
+<hr>
+        <button id="showTableDVD" class="btn btn-default">
+            <h2>Mostrar DVDs</h2></button>
+        <table id="tableResultDVDs" class="display" cellspacing="0" width="100%" style="display: none">
+            <thead>
+                <tr>
+                    <th>Orden bibliográfico</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Genero</th>
+                    <th>Descripción</th>
+                    <!-- <th>Préstamo</th> -->
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <br> {% block search %}
+    <!-- <div class="container">
         <div id="custom-search-input">
             <div class="input-group">
                 <input type="text" class="  search-query form-control" placeholder="Búsqueda" />
@@ -75,7 +71,7 @@
 
     <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
 </div>
-{% endblock  %}
+{% endblock %}
 
 
-    <hr>
+<hr>

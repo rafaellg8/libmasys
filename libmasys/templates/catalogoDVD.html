@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+
+{% block title %}BiblioDudar{% endblock %}
+{% load static %}
+
+
+<br>
+
+{% block jumbo %}
+<div class="jumbotron">
+    <div class="container">
+        <table class="col-md-12">
+            <tbody>
+                <tr>
+                    <!-- <td>
+                        <img src="{% static 'images/dudar_escudo.png' %}" class="img-responsive escudo" alt="escudo">
+                    </td> -->
+                    <td>
+                        <h2>Se han obtenido {{resultDVD.count}} dvds</h2>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block menu-foot %}
+<div class="container">
+  <h2>DVDs</h2>
+    <table id="tableResultDVDs" class="display" cellspacing="0" width="100%" style="display: none">
+      <thead>
+        <tr>
+          <th>Orden bibliográfico</th>
+          <th>Titulo</th>
+          <th>Autor</th>
+          <th>Genero</th>
+          <th>Descripción</th>
+          <!-- <th>Préstamo</th> -->
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    </table>
+</div>
+<br> {% block search %}
+<!-- <div class="container">
+        <div id="custom-search-input">
+            <div class="input-group">
+                <input type="text" class="  search-query form-control" placeholder="Búsqueda" />
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">
+                        <span class=" glyphicon glyphicon-search"></span>
+                </button>
+                </span>
+            </div>
+        </div>
+    </div> -->
+    {% endblock %}
+
+    <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+</div>
+{% endblock  %}
+
+
+    <hr>
