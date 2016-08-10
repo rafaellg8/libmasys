@@ -26,79 +26,36 @@
 
 {% block menu-foot %}
 <div class="container">
-    <table id="tableResult">
-        <tbody>
-            <tr>
-                <th><h2>LIBROS</h2></th>
-            </tr>
-            <tr>
-                <th>Orden bibliográfico</th>
-                <th>Titulo</th>
-                <th>Autor</th>
-                <th>Genero</th>
-                <th>Descripción</th>
-                <th>Préstamo</th>
-            </tr>
-            {% for q in resultBooks %}
-            <tr>
-                <td>
-                    {{q.orden}}
-                </td>
-                <td>
-                    {{q.titulo}}
-                </td>
+  <button id="showTableBooks" class="btn btn-defaultname"><h2>Libros</h2></button>
+    <table id="tableResultLibros" class="display" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Orden bibliográfico</th>
+          <th>Titulo</th>
+          <th>Autor</th>
+          <th>Genero</th>
+          <th>Descripción</th>
+          <!-- <th>Préstamo</th> -->
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    </table>
 
-                <td>
-                    {{q.autor}}
-                </td>
-                <td>
-                    {{q.genero}}
-                </td>
-                <td>
-                    {{q.descripcion}}
-                </td>
-                <td>
-                    {% if q.prestamo %} {{q.prestamo}} {% else %} Disponible {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-
-            <tr>
-                <th><h2>DVS</h2></th>
-            </tr>
-
-            <tr>
-                <th>Orden bibliográfico</th>
-                <th>Titulo</th>
-                <th>Autor</th>
-                <th>Genero</th>
-                <th>Descripción</th>
-                <th>Préstamo</th>
-            </tr>
-            {% for dvd in resultDVD %}
-            <tr>
-                <td>
-                    {{dvd.orden}}
-                </td>
-                <td>
-                    {{dvd.titulo}}
-                </td>
-
-                <td>
-                    {{dvd.autor}}
-                </td>
-                <td>
-                    {{dvd.genero}}
-                </td>
-                <td>
-                    {{dvd.descripcion}}
-                </td>
-                <td>
-                    {% if dvd.prestamo %} {{dvd.prestamo}} {% else %} Disponible {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
+    <button id="showTableDVD" class="btn btn-defaultname"><h2>DVDs</h2></button>
+    <table id="tableResultDVDs" class="display" cellspacing="0" width="100%" style="display: none">
+      <thead>
+        <tr>
+          <th>Orden bibliográfico</th>
+          <th>Titulo</th>
+          <th>Autor</th>
+          <th>Genero</th>
+          <th>Descripción</th>
+          <!-- <th>Préstamo</th> -->
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
     </table>
 </div>
 <br> {% block search %}

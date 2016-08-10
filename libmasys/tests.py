@@ -58,6 +58,15 @@ genero = Genero.objects.get(nombre="Novela")
 recurso = Recurso(titulo="Don Quijote de la Mancha", autor="Miguel de Cervantes",descripcion="",genero=genero)
 recurso.save()
 
+
+
+genero = Genero.objects.get(nombre="Infantil")
+recurso = Recurso(titulo="Dartacan y los tres mosqueteros", autor="Disney",descripcion="",genero=genero,dvd=True)
+recurso.save()
+
+genero = Genero.objects.get(nombre="Infantil")
+recurso = Recurso(titulo="Doraemon", autor="Disney",descripcion="",genero=genero,dvd=True)
+recurso.save()
 """
 
 class Genero(models.Model):

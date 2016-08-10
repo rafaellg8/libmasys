@@ -37,13 +37,13 @@ class Recurso(models.Model):
     edicion = models.IntegerField(blank=True, null=True)
     editorial = models.CharField(blank=True, max_length=250)
     dvd = models.BooleanField(default=False)
-
+    
     def __unicode__(self):
             return self.titulo
 
+
 class Prestamo(models.Model):
     """( Prestamo Recursos)"""
-
     fechaInicio = models.DateField(default=datetime.datetime.today)
     fechaFin = models.DateField(default=datetime.datetime.today()+datetime.timedelta(days=7)) #por defecto 7 dias despues de la creacion
     Recurso = models.OneToOneField(Recurso,unique=True)

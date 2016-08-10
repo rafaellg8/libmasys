@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 
 from django.http import HttpResponse
 from .forms import SimpleSearch,Search
+from django.core import serializers
+
 import queries
 from bookstore.models import Recurso
 
@@ -42,5 +44,21 @@ def Search(request):
 
 def catalogo(request):
         resultBooks = Recurso.objects.filter(dvd=False).order_by('titulo')
-        resultDVD = Recurso.objects.filter(dvd=True).order_by('titulo')
+        resultDVD =  Recurso.objects.filter(dvd=True).order_by('titulo')
         return render(request,'catalogo.html', {'resultBooks': resultBooks, 'resultDVD': resultDVD})
+
+def getAllJSONLibros(request):
+    objectQuerySet = Recurso.objects.all()
+    data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','orden','estanteria','edicion','editorial','prestamo'))
+    return HttpResponse(data, content_type='application/json')
+
+def getLibrosJSON(request):
+    objectQuerySet = Recurso.objects.filter(dvd=False).order_by('titulo')
+    data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','orden','estanteria','edicion','editorial'))
+    return HttpResponse(data, content_type='application/json')
+
+
+def getDVDsJSON(request):
+    objectQuerySet = Recurso.objects.filter(dvd=True).order_by('titulo')
+    data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','orden','estanteria','edicion','editorial'))
+    return HttpResponse(data, content_type='application/json')

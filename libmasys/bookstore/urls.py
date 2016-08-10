@@ -7,4 +7,6 @@ urlpatterns = [
     url(r'^add/',views.addBook, name='addBook'),
     url(r'^search/',views.search, name='search'),
     url(r'^catalogo/',views.catalogo, name='catalogo'),
+    url(r'^catalogojsonLibros/',views.getLibrosJSON, name='catalogoJSONLibros'),
+    url(r'^catalogojsonDVDs/',views.getDVDsJSON, name='catalogoJSONDVDs'),
 ]

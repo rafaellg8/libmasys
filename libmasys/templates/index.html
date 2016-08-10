@@ -2,35 +2,84 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% load static %}
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Sistema Gestión Biblioteca Municipal de Dúdar">
+    <meta name="author" content="Rafael Lachica Garrido">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
 
     <title>{% block title %}Jumbotron Template for Bootstrap{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" charset="utf-8"></script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
-    <!-- Custom styles for this template -->
-    <!-- <link href="jumbotron.css" rel="stylesheet"> -->
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script type="text/javascript" language="javascript" class="init">
+         $(document).ready(function() {
 
+             $('#tableResultLibros').dataTable( {
+                 "processing": true,
+                 "ajax": {
+                     "processing": true,
+                     "url": {% url 'catalogoJSONLibros' %},
+                     "dataSrc": ""
+                 },
+
+                 "columns": [
+                         { "data": "fields.orden" },
+                         { "data": "fields.titulo" },
+                         { "data": "fields.autor" },
+                         { "data": "fields.genero" },
+                         { "data": "fields.descripcion" }
+                     ]
+             } );
+         } );
+
+
+         $(document).ready(function() {
+
+             $('#tableResultDVDs').dataTable( {
+                 "processing": true,
+                 "ajax": {
+                     "processing": true,
+                     "url": {% url 'catalogoJSONDVDs' %},
+                     "dataSrc": ""
+                 },
+
+                 "columns": [
+                         { "data": "fields.orden" },
+                         { "data": "fields.titulo" },
+                         { "data": "fields.autor" },
+                         { "data": "fields.genero" },
+                         { "data": "fields.descripcion" }
+                     ]
+             } );
+         } );
+     </script>
+
+
+     <script type="text/javascript" language="javascript">
+     $(document).ready(function(){
+
+     $("#showTableDVD").click(function(){
+         $("#tableResultDVDs").show();
+         $("#tableResultLibros").hide();
+     });
+
+     $("#showTableBooks").click(function(){
+         $("#tableResultLibros").show();
+         $("#tableResultDVDs").hide();
+     });
+   });
+     </script>
 </head>
 
 <body>
@@ -80,8 +129,7 @@
                 </tbody>
             </table>
         </div>
-        <br>
-        {% block search %}
+        <br> {% block search %}
         <div class="container">
             <div id="custom-search-input">
                 <div class="input-group">
@@ -98,7 +146,7 @@
 
         <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
     </div>
-    {% endblock  %}
+    {% endblock %}
     </div>
 
     {% block menu-foot %}
@@ -125,9 +173,8 @@
             </div>
 
         </div>
-        {% endblock  %}
+        {% endblock %}
         <hr>
-
         <footer>
             <p>&copy; 2016 Rafael Lachica Garrido</p>
         </footer>
