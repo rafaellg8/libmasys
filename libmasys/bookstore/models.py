@@ -34,7 +34,7 @@ class Recurso(models.Model):
     codigo = models.CharField(blank=True, max_length=100)
     estanteria = models.CharField(blank=True, max_length=100)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
-    edicion = models.IntegerField(blank=True, null=True)
+    anio = models.IntegerField(blank=True, null=True)
     editorial = models.CharField(blank=True, max_length=250)
     dvd = models.BooleanField(default=False)
     
