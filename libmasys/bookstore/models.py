@@ -31,7 +31,7 @@ class Recurso(models.Model):
     titulo = models.CharField(blank=False, max_length=100)
     autor = models.CharField(blank=False, max_length=100)
     descripcion = models.CharField(blank=True, max_length=250)
-    orden = models.CharField(blank=True, max_length=100)
+    codigo = models.CharField(blank=True, max_length=100)
     estanteria = models.CharField(blank=True, max_length=100)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     edicion = models.IntegerField(blank=True, null=True)
