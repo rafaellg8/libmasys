@@ -59,11 +59,11 @@ def getAllJSONLibros(request):
 
 def getLibrosJSON(request):
     objectQuerySet = Recurso.objects.filter(dvd=False).order_by('titulo')
-    data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','codigo','estanteria','edicion','editorial'))
+    data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','codigo','estanteria','anio','editorial'))
     return HttpResponse(data, content_type='application/json')
 
 
 def getDVDsJSON(request):
     objectQuerySet = Recurso.objects.filter(dvd=True).order_by('titulo')
-    data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','codigo','estanteria','edicion','editorial'))
+    data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','codigo','estanteria','anio','editorial'))
     return HttpResponse(data, content_type='application/json')
