@@ -16,3 +16,4 @@ bcrypt
 unidecode
 datetime
 django-datatables-view
+psycopg2
