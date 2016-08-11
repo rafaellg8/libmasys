@@ -7,7 +7,6 @@ from django.template.defaultfilters import slugify
 import datetime
 from django.core.validators import RegexValidator
 
-
 class Genero(models.Model):
     nombre = models.CharField(blank=False, max_length=100,primary_key=True,unique=True)
 
