@@ -19,9 +19,11 @@ def addBook(request):
 def search(request):
     if (request.method == 'POST'):
         searchString = request.POST['searchParam']
-        result = queries.search(searchString)
-        print result.count()
-        return render(request,'result.html',{'result': result})
+        if searchString!='':
+            result = queries.search(searchString)
+            return render(request,'result.html',{'result': result})
+        else:
+            return redirect('/')
     else:
         return redirect('/')
 
