@@ -3,7 +3,8 @@ from bookstore.models import *
 def search(string):
     stringparts = string.split()
     for value in stringparts:
-        result = Recurso.objects.filter(titulo__icontains=value) or Recurso.objects.filter(autor__icontains=value) or Recurso.objects.filter( genero__nombre__icontains=value)
+        print value
+        result = Recurso.objects.filter(titulo__icontains=value) or Recurso.objects.filter(autor__icontains=value) or Recurso.objects.filter(genero__nombre__icontains=value) or Recurso.objects.filter(fecha_icontains=value) or Recurso.objects.filter(editorial_icontains=value)
     return result
 
 def searchTitle(string):
