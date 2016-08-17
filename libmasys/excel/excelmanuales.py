@@ -12,17 +12,17 @@ from bookstore.models import Genero,Recurso,Usuario,Prestamo
 """
 FILOSOFIA
 """
-genero = Genero(nombre="Biografía")
+genero = Genero(nombre="Manuales y Derecho")
 genero.save()
 
-wb2 = load_workbook('bibliografia.xlsx')
+wb2 = load_workbook('Manuales.xlsx')
 ws = wb2.active
 
 
-for row in ws['A2':'H26']:
+for row in ws['A2':'H31']:
         recurso = Recurso(titulo=row[0].value,autor=row[1].value,anio=str(int(row[3].value)),editorial=row[4].value,genero=genero,codigo=row[7].value)
         recurso.save()
 
-for row in ws['A252':'H293']:
+for row in ws['A63':'H90']:
         recurso = Recurso(titulo=row[0].value,autor=row[1].value,anio=str(int(row[3].value)),editorial=row[4].value,genero=genero,codigo=row[7].value)
         recurso.save()

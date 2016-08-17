@@ -30,7 +30,7 @@ class Recurso(models.Model):
     titulo = models.CharField(blank=False, max_length=100)
     autor = models.CharField(blank=False, max_length=100)
     descripcion = models.CharField(blank=True, max_length=250)
-    codigo = models.CharField(blank=True, max_length=100)
+    codigo = models.CharField(blank=True, max_length=10,unique=True)
     estanteria = models.CharField(blank=True, max_length=100)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     anio = models.IntegerField(blank=True, null=True)
