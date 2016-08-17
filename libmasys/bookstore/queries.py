@@ -6,7 +6,10 @@ def search(string):
     stringparts = string.split()
     i = 0
     for value in stringparts:
-        result = (Recurso.objects.filter(titulo__icontains=value) or Recurso.objects.filter(autor__icontains=value) or Recurso.objects.filter(genero__nombre__icontains=value) or Recurso.objects.filter(editorial__icontains=value))
+        if (Recurso.objects.filter(titulo__icontains=value) and Recurso.objects.filter(autor__icontains=value)):
+            result = Recurso.objects.filter(titulo__icontains=value) and Recurso.objects.filter(autor__icontains=value)
+        else:
+            result = (Recurso.objects.filter(titulo__icontains=value) or Recurso.objects.filter(autor__icontains=value) or Recurso.objects.filter(genero__nombre__icontains=value) or Recurso.objects.filter(editorial__icontains=value))
     return result
 
 def searchTitle(string):
