@@ -27,7 +27,7 @@ class Usuario(models.Model):
             return self.nombre+" "+self.apellidos
 
 class Recurso(models.Model):
-    titulo = models.CharField(blank=False, max_length=100)
+    titulo = models.CharField(blank=False, max_length=200)
     autor = models.CharField(blank=False, max_length=100)
     descripcion = models.CharField(blank=True, max_length=250)
     codigo = models.CharField(blank=True, max_length=10,unique=True)
