@@ -28,7 +28,7 @@ class Usuario(models.Model):
 
 class Recurso(models.Model):
     titulo = models.CharField(blank=False, max_length=200)
-    autor = models.CharField(blank=False, max_length=100)
+    autor = models.CharField(blank=False, max_length=300)
     descripcion = models.CharField(blank=True, max_length=250)
     codigo = models.CharField(blank=True, max_length=10,unique=True)
     estanteria = models.CharField(blank=True, max_length=100)

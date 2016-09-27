@@ -15,14 +15,20 @@ FILOSOFIA
 genero = Genero(nombre="Filsofía y pensamiento")
 genero.save()
 
+recursos = Recurso.objects.filter(genero=genero)
+if len(recursos)>0:
+    for r in recursos:
+        r.delete()
+
+
 wb2 = load_workbook('Filosofia.xlsx')
 ws = wb2.active
 
 
-for row in ws['A2':'H183']:
+for row in ws['A2':'H327']:
         recurso = Recurso(titulo=row[0].value,autor=row[1].value,anio=str(int(row[3].value)),editorial=row[4].value,genero=genero,codigo=row[7].value)
         recurso.save()
 
-for row in ws['A199':'H247']:
+for row in ws['A336':'H468']:
         recurso = Recurso(titulo=row[0].value,autor=row[1].value,anio=str(int(row[3].value)),editorial=row[4].value,genero=genero,codigo=row[7].value)
         recurso.save()

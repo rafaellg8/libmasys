@@ -55,6 +55,7 @@ usuario = Usuario(nombre="Pepito",apellidos="Perez Perez",telefono="123456789",d
 Recursos
 
 """
+Recursos.objects.delete()
 
 # genero = Genero.objects.get(nombre="Novela")
 # recurso = Recurso(titulo="Don Quijote de la Mancha", autor="Miguel de Cervantes",descripcion="",genero=genero)
