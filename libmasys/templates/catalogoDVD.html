@@ -26,22 +26,48 @@
 
 {% block menu-foot %}
 <div class="container">
-  <h2>DVDs</h2>
+    <button id="showTableBooks" class="btn btn-default">
+        <h2>Mostrar Libros</h2></button>
+    <table id="tableResultLibros" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Descripción</th>
+                <th>Año Edición</th>
+                <th>Editorial</th>
+                <th>Genero</th>
+                <th>Estantería</th>
+                <th>Código</th>
+                <!-- <th>Préstamo</th> -->
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+<hr>
+    <button id="showTableDVD" class="btn btn-default">
+        <h2>Mostrar DVDs</h2></button>
     <table id="tableResultDVDs" class="display" cellspacing="0" width="100%" style="display: none">
-      <thead>
-        <tr>
-          <th>Orden bibliográfico</th>
-          <th>Titulo</th>
-          <th>Autor</th>
-          <th>Genero</th>
-          <th>Descripción</th>
-          <!-- <th>Préstamo</th> -->
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Descripción</th>
+                <th>Año Edición</th>
+                <th>Editorial</th>
+                <th>Genero</th>
+                <th>Estantería</th>
+                <th>Código</th>
+                <!-- <th>Préstamo</th> -->
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
     </table>
 </div>
+
 <br> {% block search %}
 <!-- <div class="container">
         <div id="custom-search-input">
