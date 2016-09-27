@@ -36,7 +36,9 @@ class Recurso(models.Model):
     anio = models.IntegerField(blank=True, null=True)
     editorial = models.CharField(blank=True, max_length=250)
     dvd = models.BooleanField(default=False)
-    ordering = ['titulo']
+
+    class Meta:
+        ordering = ['titulo']
 
     def __unicode__(self):
             return self.titulo
