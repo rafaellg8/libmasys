@@ -7,7 +7,6 @@ from django.template.defaultfilters import slugify
 import datetime
 from django.core.validators import RegexValidator
 
-
 class Genero(models.Model):
     nombre = models.CharField(blank=False, max_length=100,primary_key=True,unique=True)
 
@@ -28,16 +27,16 @@ class Usuario(models.Model):
             return self.nombre+" "+self.apellidos
 
 class Recurso(models.Model):
-    titulo = models.CharField(blank=False, max_length=100)
-    autor = models.CharField(blank=False, max_length=100)
+    titulo = models.CharField(blank=False, max_length=200)
+    autor = models.CharField(blank=False, max_length=300)
     descripcion = models.CharField(blank=True, max_length=250)
-    orden = models.CharField(blank=True, max_length=100)
+    codigo = models.CharField(blank=True, max_length=15,unique=True)
     estanteria = models.CharField(blank=True, max_length=100)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
-    edicion = models.IntegerField(blank=True, null=True)
+    anio = models.IntegerField(blank=True, null=True)
     editorial = models.CharField(blank=True, max_length=250)
     dvd = models.BooleanField(default=False)
-    
+
     def __unicode__(self):
             return self.titulo
 

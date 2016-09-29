@@ -84,16 +84,17 @@ WSGI_APPLICATION = 'libmasys.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'bookstore.sqlite3'),
-        'USER': 'dsxvqbmrennrrl',
-        'PORT': '5432',
-        'PASSWORD': 'RLPEFYRwDTix_NNv0XBf5FqiOH',
-        'HOST': 'ec2-184-73-196-82.compute-1.amazonaws.com',
+        # 'NAME': os.path.join(BASE_DIR, 'bookstore.sqlite3'),
+        # 'USER': 'dsxvqbmrennrrl',
+        # 'PORT': '5432',
+        # 'PASSWORD': 'RLPEFYRwDTix_NNv0XBf5FqiOH',
+        # 'HOST': 'ec2-184-73-196-82.compute-1.amazonaws.com',
     }
 }
 
 db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config(default='postgres://sxnryzoiyxbqqw:vxX9wG1Sw4ji1HqreAYU5_BQyu@ec2-54-163-239-218.compute-1.amazonaws.com:5432/d79971dk2mu5ba')
+
 
 
 # Password validation

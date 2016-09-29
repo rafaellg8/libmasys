@@ -60,11 +60,14 @@
                  },
 
                  "columns": [
-                         { "data": "fields.orden" },
                          { "data": "fields.titulo" },
                          { "data": "fields.autor" },
+                         { "data": "fields.descripcion" },
+                         { "data": "fields.anio"},
+                         { "data": "fields.editorial"},
                          { "data": "fields.genero" },
-                         { "data": "fields.descripcion" }
+                         { "data": "fields.estanteria" },
+                         { "data": "fields.codigo"}
                      ]
              } );
          } );
@@ -107,11 +110,14 @@
                  },
 
                  "columns": [
-                         { "data": "fields.orden" },
                          { "data": "fields.titulo" },
                          { "data": "fields.autor" },
+                         { "data": "fields.descripcion" },
+                         { "data": "fields.anio"},
+                         { "data": "fields.editorial"},
                          { "data": "fields.genero" },
-                         { "data": "fields.descripcion" }
+                         { "data": "fields.estanteria" },
+                         { "data": "fields.codigo"}
                      ]
              } );
          } );
@@ -149,14 +155,14 @@
             </div>
             {% block form %}
             <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right" method="post" action="/"> {% csrf_token %}
+                <form id="form1" class="navbar-form navbar-right" method="post" action="/"> {% csrf_token %}
                     <!-- <div class="form-group">
                         <input type="text" placeholder="Email" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="password" placeholder="Password" class="form-control">
                     </div> -->
-                    <button type="submit" class="btn btn-success">Administracion</button>
+                    <button type="submit" form="form1"  class="btn btn-success" action="/">Administracion</button>
                 </form>
             </div>
             {% endblock %}

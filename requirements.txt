@@ -1,4 +1,4 @@
-dj-database-url==0.3.0
+dj-database-url
 django-registration
 django-toolbelt
 django-postgrespool
@@ -16,3 +16,4 @@ bcrypt
 unidecode
 datetime
 django-datatables-view
+psycopg2

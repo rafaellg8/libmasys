@@ -43,3 +43,6 @@ getXMLDB:
 	heroku run bash
 	#python libmasys/manage.py dumpdata --indent 2 --format xml > libmasys/data/database.xml
 	#scp libmasys/data/database.xml .
+
+install:
+	sudo apt-get build-dep python-psycopg2
