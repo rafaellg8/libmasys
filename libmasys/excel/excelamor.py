@@ -10,16 +10,23 @@ django.setup()
 
 from bookstore.models import Genero,Recurso,Usuario,Prestamo
 """
-FILOSOFIA
+AMOR
 """
 genero = Genero(nombre="Amor - Femenino")
 genero.save()
+
+
+recursos = Recurso.objects.filter(genero=genero)
+if len(recursos)>0:
+    for r in recursos:
+        r.delete()
+        
 
 wb2 = load_workbook('Amor.xlsx')
 ws = wb2.active
 
 
-for row in ws['A2':'A52']:
+for row in ws['A2':'H115']:
         recurso = Recurso(titulo=row[0].value,autor=row[1].value,anio=str(int(row[3].value)),editorial=row[4].value,genero=genero,codigo=row[7].value)
         recurso.save()
 #

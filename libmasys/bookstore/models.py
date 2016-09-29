@@ -27,15 +27,18 @@ class Usuario(models.Model):
             return self.nombre+" "+self.apellidos
 
 class Recurso(models.Model):
-    titulo = models.CharField(blank=False, max_length=100)
-    autor = models.CharField(blank=False, max_length=100)
+    titulo = models.CharField(blank=False, max_length=200)
+    autor = models.CharField(blank=False, max_length=300)
     descripcion = models.CharField(blank=True, max_length=250)
-    codigo = models.CharField(blank=True, max_length=10,unique=True)
+    codigo = models.CharField(blank=True, max_length=15,unique=True)
     estanteria = models.CharField(blank=True, max_length=100)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     anio = models.IntegerField(blank=True, null=True)
     editorial = models.CharField(blank=True, max_length=250)
     dvd = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['titulo']
 
     def __unicode__(self):
             return self.titulo
