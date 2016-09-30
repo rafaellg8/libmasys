@@ -45,4 +45,5 @@ getXMLDB:
 	#scp libmasys/data/database.xml .
 
 install:
+	sudo pip install -r requirements.txt
 	sudo apt-get build-dep python-psycopg2

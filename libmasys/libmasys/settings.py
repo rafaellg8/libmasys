@@ -38,13 +38,15 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookstore.apps.BookstoreConfig',
+    #'bookstore.apps.BookstoreConfig',
+    'bookstore',
+    'suit',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +60,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'libmasys.urls'
+
 
 TEMPLATES = [
     {
@@ -152,3 +155,37 @@ AUTH_PROFILE_MODULE = "account.UserProfile"
 
 LOGIN_REDIRECT_URL = '/'  # The page you want users to arrive at after they successful log in
 LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not logged in,
+
+
+#DJANGO suit
+# Django Suit configuration example
+SUIT_CONFIG = {
+    #header
+    'ADMIN_NAME': 'BIBLIODUDAR - ADMINISTRACION',
+    'HEADER_DATE_FORMAT': 'l, j. F Y',
+    'HEADER_TIME_FORMAT': 'H:i',
+
+    #forms
+    'SHOW_REQUIRED_ASTERISK': True,  # Default True
+    'CONFIRM_UNSAVED_CHANGES': True, # Default True
+
+    #menu
+    'SEARCH_URL': '/admin/auth/user/',
+    'MENU_ICONS': {
+       'sites': 'icon-leaf',
+       'auth': 'icon-lock',
+    },
+    'MENU_OPEN_FIRST_CHILD': True, # Default True
+    'MENU_EXCLUDE': ('auth.group',),
+    'MENU': (
+        'sites',
+        #{'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
+        {'label': 'Libros y prestamos', 'icon':'icon-book','models': ('bookstore.recurso', 'bookstore.prestamo') },
+        {'label': 'Usuarios', 'icon':'icon-user','models': ('bookstore.usuario')},
+        #{'label': 'Settings', 'icon':'icon-cog', 'models': ('auth.user', 'auth.group')},
+        {'label': 'Support', 'icon':'icon-question-sign', 'url': 'http://github.com/rafaellg8'},
+    ),
+
+    #misc
+    'LIST_PER_PAGE': 15
+}
