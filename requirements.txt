@@ -17,4 +17,4 @@ unidecode
 datetime
 django-datatables-view
 psycopg2
-django-suit
+django-suit==0.2.21
