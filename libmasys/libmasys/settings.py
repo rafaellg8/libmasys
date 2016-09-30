@@ -181,7 +181,7 @@ SUIT_CONFIG = {
         'sites',
         #{'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
         {'label': 'Libros y prestamos', 'icon':'icon-book','models': ('bookstore.recurso', 'bookstore.prestamo') },
-        {'label': 'Usuarios', 'icon':'icon-user','models':  ('bookstore.usuario')},
+        {'label': 'Usuarios', 'icon':'icon-user', 'url': '/admin/bookstore/usuario/'},
         #{'label': 'Settings', 'icon':'icon-cog', 'models': ('auth.user', 'auth.group')},
         {'label': 'Support', 'icon':'icon-question-sign', 'url': 'http://github.com/rafaellg8'},
     ),
