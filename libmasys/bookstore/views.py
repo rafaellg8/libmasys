@@ -69,3 +69,6 @@ def getDVDsJSON(request):
     objectQuerySet = Recurso.objects.filter(dvd=True).order_by('titulo')
     data = serializers.serialize('json', list(objectQuerySet), fields=('titulo','autor','descripcion','genero','codigo','estanteria','anio','editorial'))
     return HttpResponse(data, content_type='application/json')
+
+def sitemap(request):
+    return HttpResponse(open('sitemap.xml'), content_type="xml")

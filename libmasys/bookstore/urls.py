@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^catalogojsonLibros/',views.getLibrosJSON, name='catalogoJSONLibros'),
     url(r'^catalogojsonDVDs/',views.getDVDsJSON, name='catalogoJSONDVDs'),
     url(r'^dvd/',views.catalogoDVD, name='catalogoDVD'),
+    url(r'^sitemap\.xml$', views.sitemap, name='sitemap'),
 ]
