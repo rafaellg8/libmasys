@@ -1,12 +1,7 @@
-{% extends "index.html" %}
-
-{% block title %}BiblioDudar{% endblock %}
-{% load static %}
+{% extends "index.html" %} {% block title %}BiblioDudar{% endblock %} {% load static %}
 
 
-<br>
-
-{% block jumbo %}
+<br> {% block jumbo %}
 <div class="jumbotron">
     <div class="container">
         <table class="col-md-12">
@@ -15,58 +10,58 @@
                     <!-- <td>
                         <img src="{% static 'images/dudar_escudo.png' %}" class="img-responsive escudo" alt="escudo">
                     </td> -->
-                    <td>
+                    <td>{% if result.count > 0 %}
                         <h2>Se han obtenido {{result.count}} resultados</h2>
+                        {% else %}
+                        <h2>No ha habido suerte, prueba la búsqueda avanzada del catálogo</h2>
+                        <a href="/catalogo">Busqueda avanzada</a>
+                        {% endif %}
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-<div class="container">
-    <table id="tableResult">
-        <tbody>
-          <tr>
-            <th>Orden bibliográfico</th>
-            <th>Titulo</th>
-            <th>Autor</th>
-            <th>Genero</th>
-            <th>Descripción</th>
-            <th>Préstamo</th>
-          </tr>
-            {% for q in result %}
-            <tr>
-                <td>
-                    {{q.codigo}}
-                </td>
-                <td>
-                    {{q.titulo}}
-                </td>
+    <div class="container">
+        <table id="tableResult">
+            <tbody>
+                <tr>
+                    <th>Orden bibliográfico</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Genero</th>
+                    <th>Descripción</th>
+                    <th>Préstamo</th>
+                </tr>
+                {% for q in result %}
+                <tr>
+                    <td>
+                        {{q.codigo}}
+                    </td>
+                    <td>
+                        {{q.titulo}}
+                    </td>
 
-                <td>
-                  {{q.autor}}
-                </td>
-                <td>
-                  {{q.genero}}
-                </td>
-                <td>
-                  {{q.descripcion}}
-                </td>
-                <td>
-                  {% if q.prestamo %}
-                    {{q.prestamo}}
-                  {% else %}
-                     Disponible
-                     {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                    <td>
+                        {{q.autor}}
+                    </td>
+                    <td>
+                        {{q.genero}}
+                    </td>
+                    <td>
+                        {{q.descripcion}}
+                    </td>
+                    <td>
+                        {% if q.prestamo %} {{q.prestamo}} {% else %} Disponible {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-</div>
-<br> {% block search %}
-<!-- <div class="container">
+    </div>
+    <br> {% block search %}
+    <!-- <div class="container">
         <div id="custom-search-input">
             <div class="input-group">
                 <input type="text" class="  search-query form-control" placeholder="Búsqueda" />
@@ -82,25 +77,24 @@
 
     <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
 </div>
-{% endblock  %}
-
-{% block menu-foot %}
+{% endblock %} {% block menu-foot %}
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-4">
             <h2>Catálogo completo</h2>
-            <p> Acceda al cátalogo de recursos completo</p>
+            <p> Acceda al cátalogo de recursos completo. Búsqueda avanzada incluida</p>
             <img src="{% static 'images/books.png' %}" width="50%" height="50%" alt="catalogo" />
             <p><a class="btn btn-default" href="/catalogo/" role="button" style="width: 50%">Ver catálogo &raquo;</a></p>
         </div>
 
-        <div class="col-md-4">
+        <!--  <div class="col-md-4">
             <h2>Búsqueda avanzada</h2>
             <p>Búsqueda avanzada por campos</p>
             <img src="{% static 'images/toolsearch.png' %}" width="50%" height="50%" alt="toolsearch" />
             <p><a class="btn btn-default" href="/advancesearch/" role="button" style="width: 50%">Búsqueda avanzada &raquo;</a></p>
         </div>
+        -->
 
         <div class="col-md-4">
             <h2>DVD</h2>
@@ -110,5 +104,5 @@
         </div>
 
     </div>
-    {% endblock  %}
+    {% endblock %}
     <hr>
