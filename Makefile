@@ -22,6 +22,7 @@ heroku:
 	sudo heroku login
 	sudo heroku create bibliodudar
 	heroku buildpacks:set heroku/python
+	heroku git:remote -a bibliodudar
 	$(MAKE) deploy
 
 deploy:
