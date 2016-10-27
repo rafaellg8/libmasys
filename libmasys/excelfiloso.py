@@ -12,7 +12,7 @@ from bookstore.models import Genero,Recurso,Usuario,Prestamo
 """
 FILOSOFIA
 """
-genero = Genero(nombre="Filsofía y pensamiento")
+genero = Genero(nombre="Filosofía y pensamiento")
 genero.save()
 
 wb2 = load_workbook('Filosofia.xlsx')
